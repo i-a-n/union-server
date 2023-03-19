@@ -1,5 +1,8 @@
 .exclude-from-rsync
+.forever
 .git
+node_modules
 scripts
 package-lock.json
 README.md
+symlinks

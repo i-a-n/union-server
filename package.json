@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm restart",
+    "postinstall": "npm run restart",
     "deploy": "bash ./scripts/deploy.sh",
     "killall": "forever stopall",
-    "restart": "forever restart ./index.js",
-    "start": "forever start ./index.js",
+    "prerestart": "npm run killall",
+    "restart": "npm run start",
+    "start": "forever start -p ./.forever -l log.log -o ./forever/out.log -e ./forever/err.log -a ./index.js",
+    "status": "forever list",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
