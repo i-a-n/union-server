@@ -1,0 +1,5 @@
+.exclude-from-rsync
+.git
+scripts
+package-lock.json
+README.md

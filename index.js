@@ -4,13 +4,15 @@ const vhost = require('vhost');
 const vhttps = require('vhttps');
 
 // import each server config
-const unionIoApp = require('./servers/localhost');
+
+const unionIoApp = require('./servers/union.io');
 
 // create the http server that will serve all virtual hosts
 const allVirtualHostsHttpServer = express();
 
 // add virtualhost to the vhost server
-allVirtualHostsHttpServer.use(vhost('localhost', unionIoApp));
+allVirtualHostsHttpServer.use(vhost('localhost', unionIoApp)); // for local dev
+allVirtualHostsHttpServer.use(vhost('union.io', unionIoApp));
 
 // shorthand for simple domains: do all of the above in one call
 allVirtualHostsHttpServer.use(
