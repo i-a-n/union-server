@@ -9,7 +9,7 @@
     "killall": "forever stopall",
     "prerestart": "npm run killall",
     "restart": "npm run start",
-    "start": "forever start -p ./.forever -l log.log -o ./forever/out.log -e ./forever/err.log -a ./index.js",
+    "start": "forever start -p ./.forever ./index.js",
     "status": "forever list",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
